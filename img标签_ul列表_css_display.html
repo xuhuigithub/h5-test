@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>img标签_ul列表_css_display
+	</title>
+	<meta charset="utf-8"></head>
+</head>
+<body>
+	<div style="display: inline-block; height: 500px;width: 300px;border: 1px solid">
+		<img src="demo_image.jpg"/ style="height: 50%;width: 100%">
+	<!-- width height 的百分比是相对于上一级元素的 
+		 display:inline-block 行内块元素。（CSS2.1 新增的值）
+		 更多display属性:http://www.w3school.com.cn/cssref/pr_class_display.asp
+	 -->
+	</div>
+	<div style="display: inline-block; height: 500px;width: 300px;border: 1px solid">
+		<img src="demo_image.jpg"/ style="height: 50%;width: 100%">
+	</div>
+	<div>
+		<ul style="display: inline-block;">
+			<li>新闻1</li>
+			<li>新闻3</li>
+			<li>新闻2</li>
+		</ul>
+		<ol style="display: inline-block;">
+			<li>新闻1</li>
+			<li>新闻3</li>
+			<li>新闻2</li>
+		</ol>
+		<dl>
+			<dt>标题1</dt>
+				<dd>新闻1</dd>
+				<dd>新闻2</dd>
+				<dd>新闻3</dd>
+		</dl>
+	<!--ul 中的li元的值素默认以.开头
+		ol 中的li元的值素默认以递增数字开头
+		dl  dt元素代表标题 dd代表列表的值
+	 -->
+	</div>
+</html>

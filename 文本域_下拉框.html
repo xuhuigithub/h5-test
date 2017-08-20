@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>文本域_下拉框</title>
+	<meta charset="utf-8"></head>
+</head>
+<body>
+<form>
+	<textarea name="comment">default text</textarea>
+	<!-- 多行文本框可以提交到后台 -->
+	<br/>
+	<select name="city" multiple="multiple">
+		<optgroup label="中国">
+			<option value="1">北京</option>
+			<option value="2" selected="selected">山东</option>
+			<option value="3">河北</option>
+		</optgroup>
+	</select>
+	<!--下拉框可以提交到后台
+	selected="selected"属性表示默认值
+	size属性调整下拉框长度
+	multiple="multiple" 属性 允许多选
+	optgroup 元素对选项进行分组与后台无关
+	-->
+	<input type="submit" value="submit"/>
+</form>
+</body>
+</html>
