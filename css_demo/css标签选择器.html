@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>css默认选择器</title>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+		div{
+			background-color: black;
+			color: white;		
+		}
+		/*所有的div背景全部变为黑色，字体全部为白色*/
+		.tier_demo .demo_span{
+			background-color: white;
+			color: black;
+		}
+		/*层级选择器：所有.relevance_demo下的.demo_span背景色改为白色，字体为黑色*/
+
+		/*
+		.tier_demo span{
+			background-color: white;
+			color: black;
+		}
+		层级选择器：所有.relevance_demo下的所有span背景色改为白色，字体为黑色*/
+		/*
+		input[type="text"]{
+			height: 30px;
+			width: 30px;
+		}
+		所有input type属性为text的高设为30px;宽设为30px;
+		.c1[type="text"]{
+			height: 30px;
+			width: 30px;	
+		}
+		所有class=c1 且 type属性为text的标签高设为30px;宽设为30px;
+		
+		总结：属性选择器，对标签的属性进行一次过滤
+		*/
+	</style>
+</head>
+<body>
+	<div>demo</div>
+	<div>demo</div>
+	<div class='tier_demo'>
+		<span class="demo_span">demo_span</span>
+	</div>
+	<input  class= 'c1' type="text"/>
+	<input  class= 'c1' type="text"/>
+</body>
+</html>
