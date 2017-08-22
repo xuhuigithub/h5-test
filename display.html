@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+	<title>display</title>
+	<meta charset="utf-8"/>
+</head>
+<body>
+	<span style="display: block;">我原本是行内元素被转换为块级元素，块级元素可以调整高度、宽度、外边距、内边距</span>
+	<span>"行内元素"</span>
+	<div style="width: 100px;height: 100px;display: inline;">行内标签无法设置高度、宽度、外边距、内边距</div>
+	<span style="display: inline-block;width: 300px;height: 300px;background: red;">我既是行内元素也是块级元素，我可以调整高度、宽度、外边距、内边距，并且只占一行内的地方</span>
+	<div style="display: none">我的disply属性是不显示（也不会占用空间）</div>
+	<!-- 和js做交互时会用到 -->
+</body>
+</html>
