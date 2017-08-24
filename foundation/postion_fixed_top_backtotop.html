@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>postion_fixed_top_backtotop</title>
+	<meta charset="utf-8">
+	<style type="text/css">
+		*{
+			margin: 0px;
+			padding: 0px;
+			border: 0px;
+			color: white;
+		}
+		.header{
+			width:100%;
+			height: 48px;
+			background-color: black;
+			position: fixed;
+			/*position: fixed; 是相对于窗口设置自己的位置的*/
+			top: 0px;
+		}
+		.main{
+			width: 100%;
+			height:3000px;
+			background-color: green;
+			margin-top:48px;
+			/*设置为头部导航的高度,header div fixed以后，header的层会上升到普通层之上，就会掩盖main div 的内容*/
+		}
+		.BackTOP{
+			width: 70px;
+			color: black;
+			height: 70px;
+			font-size: 16px;
+			position: fixed;
+			bottom: 10px;
+			right: 10px;
+			background-color: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="header">头部导航</div>
+	<div class="main">内容</div>
+	<div class="BackTOP" onclick="GoTop();">返回顶部</div>
+	<script type="text/javascript">
+	function GoTop() {
+		document.body.scrollTop = 0;
+	}
+	</script>
+</body>
+</html>
