@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>three tier postion_opacity_z-index </title>
+	<style type="text/css">
+	*{
+		margin: 0px;
+		padding: 0px;
+		border: 0px;
+	}
+	.main{
+		width: 100%;
+		background-color: green;
+		height: 5000px;
+	}
+	.obsess{
+		background-color: black;
+		position: fixed;
+		right: 0px;
+		left: 0px;
+		bottom: 0px;
+		top: 0px;
+		opacity: 0.6;
+		z-index: 2;
+		/*opacity 透明度 0~1 1的时候全部显现 */
+	}
+	.front{
+		height: 300px;
+		width: 400px;
+		background-color: white;
+		position: fixed;
+/* 		margin-top: calc(40% / 2 - 100%);
+		margin-left: calc(30% / 2 - 100%); */
+		margin-top: calc(-200px /2) ;
+		margin-left: calc(-300px / 2);
+		top: 50%;
+		left: 50%;
+		z-index: 3;
+		/*层叠关系 z-index(z轴) 谁的值大谁就在上边*/
+	}
+	</style>
+</head>
+<body>
+<div class="main">内容</div>
+<div class="obsess"></div>
+<div class="front"></div>
+
+
+</body>
+</html>
