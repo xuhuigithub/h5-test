@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>overflow_icon_background-postion</title>
+</head>
+<style type="text/css">
+	.overflow_demo{
+		width: 50px;
+		height: 50px;
+		overflow: hidden;
+		/*overflow: auto;*/
+		/*		应用在div时，不管div内部元素多大只显示div的宽度和高度的范围其他隐藏hidden，或者div元素显示滚动轴auto*/
+	}
+	.demo_bg{
+		width: 100%;
+		height:600px;
+		background-image: url('../demo_image.jpg');
+		/*background-repeat: repeat-x;*/
+		background-repeat: no-repeat;
+		background-repeat: repeat-y;
+/*		背景图重复的方向设置，repeat-y纵向重复（y轴），repeat-x横向重复（x轴），no-repeat（不重复）*/
+	}
+	.icon{
+		width: 20px;
+		height: 20px;
+		border: 1px solid red;
+		background-image: url('icon.png');
+		background-repeat: no-repeat;
+		background-position-x: 0px;
+		background-position-y: -20px;
+		/*背景图定位，通过x轴y轴决定显示背景图的任意位置*/
+		/*background: url('icon.png') 0px -20px no-repeat;*/
+	}
+</style>
+<body>
+	<div class="overflow_demo">
+		<img src="../demo_image.jpg"/>
+	</div>
+	<div class="demo_bg"></div>
+	<div class="icon"></div>
+
+</body>
+</html>
