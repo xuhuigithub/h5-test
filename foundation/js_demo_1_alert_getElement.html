@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>js_demo_1_alert_getElement</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<input type="text" id="user" />
+	<input type="button" name="submit" onclick="GetData();" value="Get data!">
+	<script type="text/javascript">
+		// var name = "xuhui";
+		// var定义局部变量
+		// name = "xuhui" 是全局变量的定义方法（一般没有特殊需求只定义局部变量即可）
+		// 局部变量作用域：function内部
+		// alert(name);
+		// alert(xuhui);
+		// 这种写法是错误的，因为没有带引号的字符串会被认为是变量,alert('xuhui');才是正确的写法
+		function GetData(){ 
+			var user = document.getElementById('user');
+			alert(user.value);
+		}
+	</script>
+</body>
+</html>
