@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>postion_relative_absolute</title>
+	<style type="text/css">
+		.parent{
+			width: 500px;
+			height: 200px;
+			position: relative;
+			border: 1px solid red;
+		}
+		.son1{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			bottom: 0px;
+			left: 0px;
+			background-color: black;
+		}
+		.son2{
+			width: 30px;
+			height: 30px;
+			position: absolute;
+			top: 0px;
+			right: -30px;
+			background-color: black;
+		}
+		/*位置调整相对于parent标签（拥有position: relative;属性），可以是负数，将标签移到parent之外*/
+	</style>
+</head>
+<body>
+	<div class="parent">
+		<div class="son1"></div>
+		<div class="son2"></div>
+	</div>
+</body>
+</html>
