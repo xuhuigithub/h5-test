@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>JavaScript function and its args</title>
+	<meta charset="utf-8" />
+</head>
+<body>
+	<input type="button" name="lla" onclick="getdata()" value="getdata"/>
+	<div id="habbit">ssssss</div>
+	<input type="button" name="lla" onclick="args_demo(1,2)" value="args_demo"/>
+	<!-- 少给参数不会报错,给几个参数就收几个 -->
+
+
+<script type="text/javascript">
+
+	function getdata(){
+		var data = document.getElementById('habbit');
+		var data = data.innerText
+		alert(data);
+	}
+
+	function args_demo(a,b,c){
+		var data = [a,b,c];
+		// if(c == undefined){
+		// 	alert("c is not define");
+		// }else{
+		console.log(data);
+		alert(data);
+		// };
+	}
+</script>
+</body>
+</html>
