@@ -10,7 +10,7 @@ JavaScript
 可参考：http://www.cnblogs.com/wupeiqi/articles/5602773.html
 
 常用方法及常识：
-
+为什么加分号，生产环境js全部都是一行加分号好断句
 ```js
 	//定时器,第一个参数是代码（也可以是函数），第二个参数是间隔，单位是毫秒
 	// setInterval("alert(123);",5000)
