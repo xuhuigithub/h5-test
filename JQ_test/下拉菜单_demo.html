@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>下拉菜单</title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js" ></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			.menu{
+				border: 1px solid red;
+			}
+			.menu_title{
+				/*display: block;*/
+				width: 100%;
+				height: 20px;
+				background-color: #286090;
+				color: white;
+				line-height: 20px;
+				position: relative;
+				border-bottom: 1px solid black;
+			}
+			.menu_title input{
+				position: absolute;
+				right:0px;
+				height: 100%;
+				background-color: #286090;
+				color: yellow;
+			}
+			.on{
+				display:block;
+			}
+			.menu_container{
+				display: none;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				$(".menu_container").hide();
+				$(".menu_title input").click(function(){
+					var cur_container = $(this).parent(".menu_title").next()
+//					if(cur_container.attr('on')==0){
+//						$(".menu_container").hide("slow");
+//						$(".menu_container").attr('on','0');	//重置变成1的on属性
+//						cur_container.show('slow');
+//						cur_container.attr('on','1');
+//					}else{
+//						cur_container.hide('slow');
+//						cur_container.attr('on','0');
+//					};
+//					不推荐这样写，不仅仅是麻烦，制作特效也是个问题（不像JQ自带的一些特效例如slideDown）
+//					只允许一个菜单显示
+if(cur_container.attr('on')==0){
+//						$(".menu_container").attr('on','0');
+//						$(".menu_container").slideUp("slow");	//只允许一个菜单显示
+						cur_container.slideDown('300',function(){
+							cur_container.addClass('on');
+						});
+						cur_container.attr('on','1');
+					}else{
+						cur_container.slideUp('300',function(){
+							cur_container.removeClass('on');
+						});
+						cur_container.attr('on','0');
+					};
+
+				});				
+			});
+		</script>
+	</head>
+	<body>
+		<div class="menu">
+			<div class="item">
+				<div class="menu_title"><span>menu_title1</span><input type="button" value="点我触发" id="trigger1"/></div>
+				<ul class="menu_container" on=0>
+					<li>demo1</li>
+					<li>demo</li>
+					<li>demo</li>
+					<li>demo</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div class="menu_title"><span>menu_title2</span><input type="button" value="点我触发" id="trigger2"/></div>
+				<ul class="menu_container" on=0>
+					<li>demo2</li>
+					<li>demo</li>
+					<li>demo</li>
+					<li>demo</li>
+				</ul>
+			</div>
+			<div class="item">
+				<div class="menu_title"><span>menu_title3</span><input type="button" value="点我触发" id="trigger3"/></div>
+				<ul class="menu_container" on=0>
+					<li>demo3</li>
+					<li>demo</li>
+					<li>demo</li>
+					<li>demo</li>
+				</ul>
+			</div>
+		</div>
+	</body>
+</html>
