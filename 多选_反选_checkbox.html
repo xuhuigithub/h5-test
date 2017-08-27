@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>check_box 多选反选 样式</title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+				/*border: 0px;*/
+			}
+		</style>
+	</head>
+	<body>
+		<table border="3">
+			<thead>
+				<tr>
+					<th><input type="checkbox"/ onclick="mutlichose()" id="all_chose"></th>
+					<th><span>主机</span></th>
+					<th><span>IP</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="chosed"/></td>
+					<td>S1</td>
+					<td>192.168.1.1</td>					
+				</tr>
+				<tr>
+					<td><input type="checkbox" name="chosed"/></td>
+					<td>S1</td>
+					<td>192.168.1.1</td>					
+				</tr>
+			</tbody>
+		</table>
+		<script>
+			function mutlichose(){
+				var tr_cb = document.getElementById('all_chose');
+//				var check_boxlist = tr_cb.parentElement.parentElement.parentElement.children[1].children;
+				var check_boxlist = document.getElementsByName('chosed');
+				for(var i=0;i<check_boxlist.length;i++){
+					var c_box = check_boxlist[i];
+//					console.log(tr_cb.checked);
+					if(tr_cb.checked){
+						c_box.checked = true;
+						//设置check_box 是否被选中
+					}else{
+						c_box.checked = false;
+					}
+				}
+
+			}
+		</script>
+	</body>
+</html>
