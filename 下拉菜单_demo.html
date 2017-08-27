@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title></title>
+	<meta charset="utf-8"/>
+	<style>
+		.menu a{
+			display: block;
+		}
+		.item span{
+			display: block;
+			width: 100px;
+			height: 20px;
+			background-color: blue;
+		}
+		.hide{
+			display: none;
+		}
+	</style>
+</head>
+<body>
+	<div id="header">
+		<div id="item1" class="item">
+			<span onmouseenter="ShowMenu('item1')">下拉1</span>
+			<div class="menu hide">
+				<a href="#">demo1</a>
+				<a href="#">demo2</a>
+				<a href="#">demo3</a>
+				<a href="#">demo4</a>
+			</div>
+		</div>
+		<div id="item2" class="item">
+			<span onmouseenter="ShowMenu('item2')">下拉2</span>
+			<div class="menu hide">
+				<a href="#">demo1</a>
+				<a href="#">demo2</a>
+				<a href="#">demo3</a>
+				<a href="#">demo4</a>
+			</div>
+		</div>
+	</div>
+	
+
+	<script type="text/javascript">
+		function ShowMenu(nid){
+			var current_item = document.getElementById(nid);
+			var items_list = current_item.parentElement.children;
+			for(var i=0;i<items_list.length;i++){
+				// item.classList.add('hide');
+				var item = items_list[i];
+				item.children[1].classList.add('hide');
+			}
+			current_item.children[1].classList.remove('hide');	
+		}
+	</script>
+</body>
+</html>
