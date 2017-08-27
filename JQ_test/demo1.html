@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="../js/jquery-3.2.1.min.js" ></script>
+		<!-- 语法示例：http://www.w3school.com.cn/jquery/jquery_syntax.asp -->
+		<script>
+			$(function(){
+				alert('12345');
+			});
+			//浏览器在页面（document）未就绪时就开始执行
+			$(document).ready(function(){
+			//浏览器在document就绪后再执行
+				$("#demo1").click(function(){
+					$("#demo1").hide();					
+				});
+				
+				$("p").click(function(){
+					$(this).hide();
+				});
+				
+				$("#hide_trigger").click(function(){
+					$("p").hide();
+					//$('*').hide();
+					//全部标签
+				});
+				
+			});
+		</script>
+	</head>
+	<body>
+		<div id="demo1" class="demo_1">JQuery_demo</div>
+		<p>点我消失：呵呵</p>
+		<p>点我消失：哈哈</p>
+		<input type="button" id="hide_trigger" value="不用点他们我让他们消失"/>
+	</body>
+</html>
