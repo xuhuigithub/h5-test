@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>全选</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#checkall").click(function(){
+					if($("#checkall").prop('checked')){
+//						$("tbody tr input[type='checkbox'][name='head']:not(:checked)").prop('checked',true);
+						console.log($("tr>td:first"));
+					}else{
+//						$("tbody tr input[type='checkbox']:checked").prop('checked',false);
+						var cbox_list = $("tbody tr input[type='checkbox'][name='head']:checked");
+						cbox_list.each(function(i){		//遍历数组
+							//i为数组的索引
+							$(this).prop('checked',false);
+						});
+					};
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<table border="3">
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="checkall"/></th>
+					<th>主机名</th>
+					<th>IP地址</th>
+					<th>密码</th>
+					<th>操作</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="head"/></td>
+					<td>mongo1</td>
+					<td>1.1.1.1</td>
+					<td>123456</td>
+					<td>删除 编辑<input type="checkbox"/></td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="head"/></td>
+					<td>mongo2</td>
+					<td>1.1.1.2</td>
+					<td>123456888</td>
+					<td>删除 编辑<input type="checkbox"/></td>
+				</tr>
+				
+			</tbody>
+		</table>
+	</body>
+</html>
