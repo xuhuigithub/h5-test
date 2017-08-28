@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ选择器</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+	</head>
+	<body>
+		<div id=demo1>
+			<span>demo1</span>
+			<br/>
+			<a cus_attr="123">demo_a</a>
+			<a cus_attr="456">demo_b</a>
+			<div>
+				<a>demo1的子div的a标签</a>
+			</div>
+		</div>
+		
+		<div id=demo2>
+			<p>demo2</p>			
+		</div>
+		<script>
+			//选择器
+			console.log($('#demo1,a'));
+			//选中所有a标签或者ID为demo1的标签
+			
+			//层级选择器
+			console.log($("#demo1 a"));
+			//id为demo1下的所有a标签(包括子子孙孙下的a标签)
+			console.log($("#demo1>a"));
+			//id为demo1下的所有a标签(只包括他的孩子)
+			
+			//筛选器
+			console.log($("#demo1 > a:first"));
+			//id为demo1下的所有子a标签的第一个
+			console.log($("#demo1 > a:not(:first)"));
+			//id为demo1下的所有子a标签不是第一个的,用法:not(selector)
+			console.log($("#demo1>a:eq(1)"));	//可以是eq也可以是gt lt
+			//id为demo1下的所有子a标签中的索引为1的标签
+			
+			//根据属性查找标签
+			console.log($('[cus_attr]'));
+			//寻找所有具有属性cus_attr的标签
+			console.log($('[cus_attr="123"]'));
+			//寻找所有具有属性cus_attr="123"的标签
+			
+			console.log($(":text"));
+			//选择所有type属性为text的 input
+			//相当于$("input[type='text']");
+		</script>
+	</body>
+</html>
