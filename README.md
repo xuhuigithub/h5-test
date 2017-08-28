@@ -91,3 +91,18 @@ JavaScript
 	}
 	*/
 ```
+
+
+JQuery
+----
+参考地址：http://jquery.cuishifeng.cn/index.html
+如何选择JQuery版本：
+	- 版本1	兼容性好	（推荐1版本的最新版）
+	- 版本2 	2版本以后忽略IE低版本
+	- 版本3	功能齐全
+引入JQuery就相当于Python import加载模块
+引入JQuery后 <script></script>中的$就等于JQuery"模块"
+
+JQuery对象和Dom对象之间的互转
+	JQuery转换为Dom对象：	$('#id')[0]
+	Dom对象转换为JQuery对象：	$(document.getElementById('#id'))
