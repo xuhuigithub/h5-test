@@ -7,15 +7,23 @@
 		<script>
 			$(document).ready(function(){
 				$("#checkall").click(function(){
+					//fuction 是匿名函数
 					if($("#checkall").prop('checked')){
-//						$("tbody tr input[type='checkbox'][name='head']:not(:checked)").prop('checked',true);
-						console.log($("tr>td:first"));
+						$("tbody tr input[type='checkbox'][name='head']:not(:checked)").prop("checked",true);
+						//prop 是property的缩写 也就是每个Dom对象的property第一个参数是 Dom的特性（property），如果只有一个参数则只返回特性的值，第二个参数是为第一个特性设置值的
+//						console.log($("tr>td:first"));
 					}else{
 //						$("tbody tr input[type='checkbox']:checked").prop('checked',false);
 						var cbox_list = $("tbody tr input[type='checkbox'][name='head']:checked");
 						cbox_list.each(function(i){		//遍历数组
-							//i为数组的索引
-							$(this).prop('checked',false);
+							//JQuery形式的循环
+							//i为数组的中的索引值
+//							$(this).prop('checked',false);
+							this.checked = false;
+							//this代表当前循环到的元素 	this是dom对象？
+							var v = this.checked?1:2;
+							console.log(a);
+							//JQuery中的三元运算，如果v = this.checked 则等于1 否则等于 2
 						});
 					};
 				});
