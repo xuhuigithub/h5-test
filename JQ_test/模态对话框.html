@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>模态对话框</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			table{
+				margin: 0px auto;
+			}
+			table th{
+				width: 100px;
+				height: 30px;
+			}
+			table td{
+				text-align: center;
+			}
+			.hide{
+				display: none;
+			}
+			.shadow{
+				position: fixed;
+				left: 0;
+				right: 0;
+				top: 0;
+				bottom: 0;
+				background-color: black;
+				opacity: 0.6;
+				z-index: 9;
+			}
+			
+			.modal{
+				background-color: #EEEEEE;
+				height: 300px;
+				width: 400px;
+				position:fixed;
+				left: 50%;
+				top: 50%;
+				margin-top: -150px;
+				margin-left: -200px;
+				text-align: center;
+				z-index: 10;
+			}
+			.modal input[type='text']{
+				width: 100%;
+				line-height: 25px;
+				margin-bottom: 10px;
+			}
+			.info_but{
+				height: 50px;
+			}
+			.info_but input[type='button']{
+				width: 20%;
+				height: 100%;
+			}
+			.info_edit,.info_but{
+				margin: 20px 30px 0px 30px;
+			}
+			
+			
+
+		</style>
+		<script>
+			$(document).ready(function(){
+				$("#checkall").click(function(){
+					//fuction 是匿名函数
+					if($("#checkall").prop('checked')){
+						$("tbody tr input[type='checkbox'][name='headbox']:not(:checked)").prop("checked",true);
+					}else{
+						$("tbody tr input[type='checkbox'][name='headbox']:checked").prop("checked",false);
+					};
+				});
+				
+				$("a[name='edit']").click(function(){
+					$(".shadow,.modal").show("slow");
+					var host_info = $(this).parent().siblings();
+					host_info.each(function(i){
+						var edit_params = $(".info_edit input[type='text']").eq(i);
+						edit_params.attr('value',host_info.eq(i+1).text());
+					});
+				});
+			});
+			
+			function hideModal(){
+				$(".shadow,.modal").hide("slow");
+				$(".info_edit input[type='text']").attr('value',"");
+			};
+			
+		</script>
+	</head>
+	<body>
+		<table border="1">
+			<thead>
+				<tr>
+					<th><input type="checkbox" id="checkall"/></th>
+					<th class="info_hostname">主机名</th>
+					<th>IP地址</th>
+					<th>密码</th>
+					<th>操作</th>
+				</tr>				
+			</thead>
+			<tbody>
+				<tr>
+					<td><input type="checkbox" name="headbox"/></td>
+					<td>mongo1</td>
+					<td>1.1.1.1</td>
+					<td>123456</td>
+					<td><a href="#" name="edit" id=i1>编辑</a></td>
+				</tr>
+				
+				<tr>
+					<td><input type="checkbox" name="headbox"/></td>
+					<td>mongo2</td>
+					<td>1.1.1.2</td>
+					<td>123456888</td>
+					<td><a href="#" name="edit">编辑</a></td>
+				</tr>
+	</body>
+		<div class="shadow hide"></div>
+		<div class="modal hide">
+			<div class="info_edit">
+				<input type="text" name=host_name/>
+				<input type="text" name=ip_address />
+				<input type="text" name=pass_word />
+			</div>
+			<div class="info_but">
+			<input type="button" value="取消" onclick="hideModal()"/>
+			</div>
+		</div>
+</html>
