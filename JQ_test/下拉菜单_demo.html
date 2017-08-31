@@ -41,6 +41,19 @@
 				$(".menu_container").hide();
 				$(".menu_title input").click(function(){
 					var cur_container = $(this).parent(".menu_title").next()
+					//prev()上一个标签
+					//另外几个常用的筛选器 
+					//parent() 父标签
+					//children() 所有子标签
+					//siblings() 所有兄弟标签
+					//.eq(index) 一种方法选中拥有索引的对象	$("li").eq(1)	选中所以li标签的第2个（从零开始计数）
+					//.hasClass() 是否拥有指定的class
+					//.parents() 所有父级标签
+					//.parentsUntil(expr) 截止到哪一个父级标签\n
+//					next([expr])
+//					nextAll([expr])
+//					nextUntil([e|e][,f])
+					//同样的prev()也有上述方法
 //					if(cur_container.attr('on')==0){
 //						$(".menu_container").hide("slow");
 //						$(".menu_container").attr('on','0');	//重置变成1的on属性
