@@ -4,6 +4,8 @@
 		<meta charset="UTF-8">
 		<title>模态对话框</title>
 		<script src="../js/jquery-1.12.4.js"></script>
+		<link href="../css/bootstrap.min.css" rel="stylesheet">
+		<!--<script src="../js/bootstrap.min.js"></script>-->
 		<style>
 			*{
 				margin: 0px;
@@ -12,13 +14,14 @@
 			table{
 				margin: 0px auto;
 			}
+			/*
 			table th{
 				width: 100px;
 				height: 30px;
 			}
 			table td{
 				text-align: center;
-			}
+			}*/
 			.hide{
 				display: none;
 			}
@@ -76,24 +79,32 @@
 				});
 				
 				$("a[name='edit']").click(function(){
-					$(".shadow,.modal").show("slow");
+//					$(".shadow,.modal").show("slow");
+					$(".shadow,.modal").fadeToggle("slow",function(){
+						$(".shadow,.modal").removeClass('hide');
+					});
 					var host_info = $(this).parent().siblings();
 					host_info.each(function(i){
-						var edit_params = $(".info_edit input[type='text']").eq(i);
-						edit_params.attr('value',host_info.eq(i+1).text());
+						var target = $(this).attr('target');
+//						var edit_params = $(".info_edit input[type='text']").eq(i);
+						var edit_params = $(".info_edit input[name='" + target +"']" );
+						edit_params.attr('value',$(this).text());
 					});
 				});
 			});
 			
 			function hideModal(){
-				$(".shadow,.modal").hide("slow");
+//				$(".shadow,.modal").hide("slow");
+				$(".shadow,.modal").fadeToggle("slow",function(){
+					$(".shadow,.modal").addClass('hide');
+				});
 				$(".info_edit input[type='text']").attr('value',"");
 			};
 			
 		</script>
 	</head>
 	<body>
-		<table border="1">
+		<table class="table table-condensed">
 			<thead>
 				<tr>
 					<th><input type="checkbox" id="checkall"/></th>
@@ -103,29 +114,29 @@
 					<th>操作</th>
 				</tr>				
 			</thead>
-			<tbody>
+			<tbody class="table table-striped">
 				<tr>
 					<td><input type="checkbox" name="headbox"/></td>
-					<td>mongo1</td>
-					<td>1.1.1.1</td>
-					<td>123456</td>
+					<td target="host_name">mongo1</td>
+					<td target="ip_address">1.1.1.1</td>
+					<td target="pass_word">123456</td>
 					<td><a href="#" name="edit" id=i1>编辑</a></td>
 				</tr>
 				
 				<tr>
 					<td><input type="checkbox" name="headbox"/></td>
-					<td>mongo2</td>
-					<td>1.1.1.2</td>
-					<td>123456888</td>
+					<td target="host_name">mongo2</td>
+					<td target="ip_address">1.1.1.2</td>
+					<td target="pass_word">123456888</td>
 					<td><a href="#" name="edit">编辑</a></td>
 				</tr>
 	</body>
 		<div class="shadow hide"></div>
 		<div class="modal hide">
 			<div class="info_edit">
-				<input type="text" name=host_name/>
-				<input type="text" name=ip_address />
-				<input type="text" name=pass_word />
+				<input type="text" name='host_name'/>
+				<input type="text" name='ip_address' />
+				<input type="text" name='pass_word' />
 			</div>
 			<div class="info_but">
 			<input type="button" value="取消" onclick="hideModal()"/>
