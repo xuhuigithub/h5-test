@@ -43,11 +43,21 @@
 			<div context_area = 'context3' class="hide">菜单3的内容</div>	
 		</div>
 		<script>
+//		$(".menu-item").click(function(){
+//			$(this).addClass('active').siblings().removeClass('active');
+//			//可以连续写
+//			var target_content = $(this).attr('target');
+//			$(".menu-context div[context_area='" + target_content +　"']").removeClass('hide').siblings().addClass('hide');
+//			//为选中的div去掉hide样式，为他的兄弟们加上hide样式
+//		});
+//		</script>
+		<script>
 		$(".menu-item").click(function(){
 			$(this).addClass('active').siblings().removeClass('active');
 			//可以连续写
-			var target_content = $(this).attr('target');
-			$(".menu-context div[context_area='" + target_content +　"']").removeClass('hide').siblings().addClass('hide');
+			var v = $(this).index();
+			//获取当前元素在其父元素之中的索引值
+			$('.menu-context').children().eq(v).removeClass('hide').siblings().addClass('hide');
 			//为选中的div去掉hide样式，为他的兄弟们加上hide样式
 		});
 		</script>

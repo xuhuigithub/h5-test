@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>thumbs up demo</title>
+		<style>
+			.item{
+				position: relative;
+				width: 100%;
+				height: 250px;
+				border: 1px solid #EEEEEE;
+			}
+			.thumbs{
+				display: inline-block;
+				width: 20px;
+				height: 20px;
+				background-position-x: 0px;
+				background-position-y: -40px;
+				background-repeat: no-repeat;
+				background-image: url(../foundation/icon.png);
+				cursor: pointer;
+			}
+			.item .foot{
+				position: absolute;
+				width: 100%;
+				height: 10%;
+				border-top: 1px solid black;
+				bottom: 0px;
+			}
+			.up{
+				width: 38px;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="item">
+			<div class="foot">
+				<div class='up'><span class="thumbs"></span></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="foot">
+				<div class='up'><span class="thumbs"></span></div>
+			</div>
+		</div>
+	</body>
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script>
+		$('.thumbs').click(function(){
+			add_span(this);
+			$(this).css('background-position-y','-20px');
+		});
+		
+		function add_span(self){
+			var fontSize = 15;
+			var top = 0;
+			var right = 0;
+			var opacity = 1;
+			
+			var span = document.createElement('span');
+			$(span).css('color','green');
+			$(span).css('position','absolute');
+			$(span).css('font-size',fontSize + 'px');
+			$(span).css('right',right + 'px');
+			$(span).css('top',top + 'px');
+			$(span).css('opacity',opacity);
+			
+			var value = $(span).text('+1');
+			$(self).parent().append(value);
+			
+			obj = setInterval(function(){
+				fontSize = fontSize + 5;
+				top = top - 5;
+				right = right - 5;
+				opacity = opacity - 0.2;
+				$(span).css('font-size',fontSize + 'px');
+				$(span).css('right',right + 'px');
+				$(span).css('top',top + 'px');
+				$(span).css('opacity',opacity);
+				if(opacity < 0){
+					clearInterval(obj);
+					$(span).remove();
+				};
+			},100);
+		};
+	</script>
+</html>
