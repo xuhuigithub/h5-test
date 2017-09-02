@@ -79,6 +79,7 @@
 				});
 				
 				$("a[name='edit']").click(function(){
+					td_postion = $(this).parent().siblings('[target]');
 //					$(".shadow,.modal").show("slow");
 					$(".shadow,.modal").fadeToggle("slow",function(){
 						$(".shadow,.modal").removeClass('hide');
@@ -92,13 +93,20 @@
 					});
 				});
 			});
-			
 			function hideModal(){
 //				$(".shadow,.modal").hide("slow");
 				$(".shadow,.modal").fadeToggle("slow",function(){
 					$(".shadow,.modal").addClass('hide');
 				});
 				$(".info_edit input[type='text']").attr('value',"");
+			};
+			function edit_Record(){
+				$(td_postion).each(function(){
+					var target = $(this).attr('target');
+					var value = $(".info_edit input[name='" + target +"']" ).val();
+					$(this).text(value);
+				});
+				hideModal();
 			};
 			
 		</script>
@@ -120,7 +128,7 @@
 					<td target="host_name">mongo1</td>
 					<td target="ip_address">1.1.1.1</td>
 					<td target="pass_word">123456</td>
-					<td><a href="#" name="edit" id=i1>编辑</a></td>
+					<td><a href="#" name="edit" n=1>编辑</a></td>
 				</tr>
 				
 				<tr>
@@ -128,18 +136,21 @@
 					<td target="host_name">mongo2</td>
 					<td target="ip_address">1.1.1.2</td>
 					<td target="pass_word">123456888</td>
-					<td><a href="#" name="edit">编辑</a></td>
+					<td><a href="#" name="edit" n=2>编辑</a></td>
 				</tr>
 	</body>
 		<div class="shadow hide"></div>
 		<div class="modal hide">
+			<form>
 			<div class="info_edit">
 				<input type="text" name='host_name'/>
 				<input type="text" name='ip_address' />
 				<input type="text" name='pass_word' />
 			</div>
 			<div class="info_but">
+			<input type="button" value="确定" onclick="edit_Record()"/>
 			<input type="button" value="取消" onclick="hideModal()"/>
 			</div>
+			</form>
 		</div>
 </html>
