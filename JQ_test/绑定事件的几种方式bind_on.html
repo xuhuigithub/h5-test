@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>绑定事件的几种方式bind_on</title>
+	</head>
+	<body>
+		<input class="button" type="button"/>
+		<!--<a href="http://www.baidu.com" onclick='return Customize()'>默认事件和自定义事件</a> dom写法-->
+		<!--onclick后边有return 和 没return的区别，当函数return false时，此处再return 将会阻止默认事件发生-->
+		<!--<a href="http://www.baidu.com">默认事件和自定义事件</a> JQuery写法-->
+		
+	</body>
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script>
+		//默认情况下所有的绑定事件都是在页面加载时完成的，而$('body').delegate（委托绑定事件）则是在点击时绑定的
+//第一种常规绑定方式
+//		$('.button').click(function{
+//			
+//		});
+//第二种绑定方式加解绑
+//		$('button').bind('click',function(){
+//			
+////		});
+//		$('.button').unbind('click',function{
+//			
+//		});
+//解绑事件
+
+//第三种绑定方式,为所有的input[type="button"]的标签绑定click事件
+//		$('body').delegate('input[type="button"]','click',function(){
+//			
+//		});
+//解绑事件
+		//		$('body').undelegate('input[type="button"]','click',function(){
+//			
+//		});
+//第四种绑定方式
+//$('.button').on('click',function(){
+//	
+//	
+//});
+//解绑事件
+//$('.button').off('click',function(){
+//	
+//});
+
+//dom写法
+//	function Customize(){
+//		alert('这是自定义事件');
+//		return false;
+//	};
+//JQuery写法
+	$('a').click(function(){
+		alert(123);
+		return false;
+	});
+
+	</script>
+</html>
