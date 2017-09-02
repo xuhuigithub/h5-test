@@ -80,6 +80,7 @@
 				
 				$("a[name='edit']").click(function(){
 					td_postion = $(this).parent().siblings('[target]');
+//					console.log(td_postion);
 //					$(".shadow,.modal").show("slow");
 					$(".shadow,.modal").fadeToggle("slow",function(){
 						$(".shadow,.modal").removeClass('hide');
@@ -89,7 +90,8 @@
 						var target = $(this).attr('target');
 //						var edit_params = $(".info_edit input[type='text']").eq(i);
 						var edit_params = $(".info_edit input[name='" + target +"']" );
-						edit_params.attr('value',$(this).text());
+//						edit_params.attr('value',$(this).text());
+						edit_params.val($(this).text());						
 					});
 				});
 			});
@@ -104,6 +106,7 @@
 				$(td_postion).each(function(){
 					var target = $(this).attr('target');
 					var value = $(".info_edit input[name='" + target +"']" ).val();
+					//对于input 框必须使用val
 					$(this).text(value);
 				});
 				hideModal();
