@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>返回顶部</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<style>
+			.main{
+				height: 5000px;
+			}
+			.Back_top{
+				position: fixed;
+				right: 0px;
+				bottom: 20px;
+				height: 50px;
+				background-color: green;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="Back_top">
+			Back_top
+		</div>
+		<div class="main">
+			
+		</div>
+		<script>
+			$(document).ready(function(){
+				var pos = $('.main').offset();
+				//获取标签相对于窗口的偏移,.top 偏移top的距离
+//				var pos = $('.main').position(); //获取标签相对于父级标签（拥有postion:relative）的偏移 ,.top 偏移top的距离
+				console.log(pos);
+			});
+			$('.Back_top').click(function(){
+				$(window).scrollTop(0);
+				//window代指整个窗口，srocllTop 方法不加值 返回当前举例顶部的距离单位为
+			});
+
+		</script>
+	</body>
+</html>
