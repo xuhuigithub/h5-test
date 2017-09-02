@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>添加删除网页内容</title>
+	</head>
+	<body>
+		<input id='context' type="text" />
+		<input id ='add_context' type="button" value="添加" />
+		<input id ='del_context' type="button" value="删除" />
+		<input id ='cp_context' type="button" value="复制" />		
+		<ul id='context_list'>
+			<li>111</li>
+			<li>222</li>
+			<li>333</li>
+		</ul>
+	</body>
+	<script src="../js/jquery-1.12.4.js"></script>
+	<script>
+		$('#add_context').click(function(){
+			var inp_value = $('#context').val();
+			var add_value = "<li>" + inp_value +"</li>";
+			$('#context_list').append(add_value);
+//			$(add_value).appendTo('#context_list');
+			//数组操作append 向数组中添加元素
+//			$('#context_list').prepend(add_value);
+			//在数组前边添加元素
+//			$('#context_list').after(add_value);
+			//在当前标签的后边添加
+//			$('#context_list').before(add_value);
+			//在当前标签的前边添加
+		});
+		
+		$('#del_context').click(function(){
+			var index = $('#context').val();
+			$('#context_list li').eq(index).remove();
+//			$('#context_list li').eq(index).empty();
+			//仅清空内容 不删除标签
+		});
+		$('#cp_context').click(function(){
+			var index = $('#context').val();
+			var temp = $('#context_list li').eq(index).clone();
+			//完全克隆内容加标签
+			$('#context_list').append(temp);
+		});
+	</script>
+</html>
