@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>表单验证</title>
+	</head>
+	<body>
+		<form action="demo1.html" method="post">
+			<label>用户名:</label><input type="text" placeholder="用户名" />
+			<input type="submit" value="提交"/>
+		</form>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<script>
+			$(':submit').click(function(){
+				var v = $(this).prev().val();
+				var result = true?v.length >0:false;
+				return result;
+			});
+//			页面框架加载完成后自动执行,而不是所有元素加载完成再执行
+//			$(function(){
+//				alert(123);
+//			});
+//			等同于上边的代码
+//			$(document).ready(function(){
+//				alert(123);				
+//			});
+		</script>
+	</body>
+</html>
