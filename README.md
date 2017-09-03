@@ -106,3 +106,7 @@ JQuery
 JQuery对象和Dom对象之间的互转
 	JQuery转换为Dom对象：	$('#id')[0]
 	Dom对象转换为JQuery对象：	$(document.getElementById('#id'))
+
+局部变量与全局变量
+	在function外部var定义的变量称为全局变量,function 内部 var定义的变量被称为局部变量,普通情况下在function 中不使用var定义变量则视为全局变量
+	局部变量不能被删除，而全局变量可以
