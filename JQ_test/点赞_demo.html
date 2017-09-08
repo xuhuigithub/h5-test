@@ -4,6 +4,9 @@
 		<meta charset="UTF-8">
 		<title>thumbs up demo</title>
 		<style>
+			.hide{
+				display: none;
+			}
 			.item{
 				position: relative;
 				width: 100%;
@@ -31,27 +34,93 @@
 				width: 38px;
 				position: relative;
 			}
+			.thumbs_count{
+				position: absolute;
+				top: 0px;
+				right: 0px;
+				color: green;
+			}
 		</style>
 	</head>
 	<body>
 		<div class="item">
 			<div class="foot">
-				<div class='up'><span class="thumbs"></span></div>
+				<div class='up'><span class="thumbs" clicked='off'></span></div>
 			</div>
 		</div>
 		<div class="item">
 			<div class="foot">
-				<div class='up'><span class="thumbs"></span></div>
+				<div class='up'><span class="thumbs" clicked='off'></span></div>
 			</div>
 		</div>
 	</body>
 	<script src="../js/jquery-1.12.4.js"></script>
 	<script>
-		$('.thumbs').click(function(){
-			add_span(this);
-			$(this).css('background-position-y','-20px');
+//		function thumbs_show(self,text,clicked){
+//			var span = self.next();
+//				$(span).removeClass('hide');
+//				$(span).text(text);
+//				$(span).animate({
+//					fontSize: '30px',
+//					top: '-30px',
+//					right: '-30px',
+//					opacity: '0'
+//				},'slow');
+//				self.attr('clicked',clicked);
+//		};
+//		$('.thumbs').click(function(){
+//			var clicked = $(this).attr('clicked');
+//			if(clicked == 'false'){
+////				$(this).next().removeClass('hide');
+//				thumbs_show($(this),'+1','true');
+//			}else{
+////				$(this).next().removeClass('hide');
+//				thumbs_show($(this),'-1','false');
+//			}
+//		});
+		
+		$(document).ready(function(){
+			$('.thumbs').click(function(){
+				var clicked = $(this).attr('clicked');
+				if(clicked == 'off'){
+					$(this).css('background-position-y','-20px');
+					var span = document.createElement('span');
+					var value = $(span).text('+1');
+					$(this).after(value);
+					$(span).addClass('thumbs_count');
+					$(span).animate({
+						fontSize: '30px',
+						top: '-30px',
+						right: '-30px',
+						opacity: '0',
+					},'slow',function(){
+						$(span).remove();	
+					});
+					$(this).attr('clicked','on');
+				}else{
+					$(this).css('background-position-y','-40px');
+					var span = document.createElement('span');
+					var value = $(span).text('-1');
+					$(this).after(value);
+					$(span).addClass('thumbs_count');
+					$(span).animate({
+						fontSize: '30px',
+						top: '-30px',
+						right: '-30px',
+						opacity: '0',
+						fontWeight: 'blod'
+					},'slow',function(){
+						$(span).remove();	
+					});
+					$(this).attr('clicked','off');
+				}
+			});
 		});
 		
+		
+		
+		
+		/*
 		function add_span(self){
 			var fontSize = 15;
 			var top = 0;
@@ -84,5 +153,6 @@
 				};
 			},100);
 		};
+		*/
 	</script>
 </html>
