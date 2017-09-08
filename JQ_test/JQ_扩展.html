@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>JQ扩展</title>
+		<script src="../js/jquery-1.12.4.js"></script>
+		<script>
+/*
+			$.extend({
+				'hehe':function(){
+					return 'hehe';
+				},
+				'haha':function(){
+					return 'haha';
+				}
+			});
+			var v = $.haha();
+			alert(v);
+			//扩展JQuery方法
+*/
+
+			$.fn.extend({
+				'hehehe': function(){
+					this.text('sss');
+				}
+			});
+			$(document).ready(function(){
+				$('#i1').hehehe();
+			});
+
+
+		</script>
+	</head>
+	<body>
+		<div id="i1"></div>
+		<script src="js_demo/plugin.js"></script>
+		<script>
+			console.log($.lalala());
+		</script>
+	</body>
+</html>
