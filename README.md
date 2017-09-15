@@ -110,3 +110,11 @@ JQuery对象和Dom对象之间的互转
 局部变量与全局变量
 	在function外部var定义的变量称为全局变量,function 内部 var定义的变量被称为局部变量,普通情况下在function 中不使用var定义变量则视为全局变量
 	局部变量不能被删除，而全局变量可以
+
+序列化
+---
+	将字符串解析成json对象
+	JSON.parse(str)
+	
+	将任何对象解析成字符串
+	JSON.stringfy(li)
