@@ -118,3 +118,28 @@ JQuery对象和Dom对象之间的互转
 	
 	将任何对象解析成字符串
 	JSON.stringfy(li)
+
+ajax
+---
+			function add_host(){
+			var name = $("#hostinfo_name").val();
+			var ip_addr = $("#hostinfo_ip_addr").val();
+			var ipmi_addr = $("#hostinfo_ipmi_addr").val();
+			var password = $("#hostinfo_password").val();
+			$.ajax({
+				url: 'add_host',
+				// 后台uri
+				type: "POST",
+				// 方法
+				data: {'name':name,'ip_addr':ip_addr,'ipmi_addr':ipmi_addr,'password':password},
+				// 表单数据
+				success: function(data){
+					console.log(data);
+					//如果提交成功执行的函数
+				},
+				error: function(data){
+					alert(data.msg);
+					//如果失败执行的函数
+				}
+			});
+		};
